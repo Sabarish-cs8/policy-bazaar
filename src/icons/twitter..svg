@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-twitter">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="twitter" clip-path="url(#clip-twitter)">
+    <path id="Path_20679" data-name="Path 20679" d="M3.863,1.877H5.83L17.661,17.52H15.829ZM16.99,0,11.539,6.232,6.825,0H0L8.156,10.665.426,19.5h3.31L9.7,12.684,14.915,19.5h6.658L13.07,8.26,20.3,0Z" transform="translate(1 2)" fill="#fff"/>
+  </g>
+</svg>

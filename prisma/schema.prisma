@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BusinessCard {
+  id          Int    @id @default(autoincrement())
+  name        String
+  features    String[]
+  eligibility Json
+  documents   String[]
+}
+model User {
+  id               String   @id @default(uuid())
+  name             String
+  email            String   @unique
+  officialEmail    String?  @unique
+  phoneNumber      String
+  city             String
+  nationality      String
+  monthlyIncome    Float
+  employmentType   String
+  companyLandline  Boolean
+  companyWebsite   Boolean
+  salaryConsistency Boolean
+  creditCardDuration String
+  missedPayments   Boolean
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model CardDetails {
+  id              Int      @id @default(autoincrement())
+  icon            String   
+  bankName        String
+  cardName        String
+  monthlyIncome   Float
+  annualFees      String   
+  features        String[]
+  rewards         String[]
+  benefits        String[]
+  annualFee       String[] 
+}
