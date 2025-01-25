@@ -8,40 +8,50 @@ datasource db {
 }
 
 model BusinessCard {
-  id          Int    @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
-  features    String[]
   eligibility Json
+  features    String[]
   documents   String[]
 }
+
 model User {
-  id               String   @id @default(uuid())
-  name             String
-  email            String   @unique
-  officialEmail    String?  @unique
-  phoneNumber      String
-  city             String
-  nationality      String
-  monthlyIncome    Float
-  employmentType   String
-  companyLandline  Boolean
-  companyWebsite   Boolean
-  salaryConsistency Boolean
+  id                 String   @id @default(uuid())
+  name               String
+  email              String   @unique
+  officialEmail      String?  @unique
+  phoneNumber        String
+  city               String
+  nationality        String
+  monthlyIncome      Float
+  employmentType     String
+  companyLandline    Boolean
+  companyWebsite     Boolean
+  salaryConsistency  Boolean
   creditCardDuration String
-  missedPayments   Boolean
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  missedPayments     Boolean
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }
 
 model CardDetails {
-  id              Int      @id @default(autoincrement())
-  icon            String   
-  bankName        String
-  cardName        String
-  monthlyIncome   Float
-  annualFees      String   
-  features        String[]
-  rewards         String[]
-  benefits        String[]
-  annualFee       String[] 
+  id            Int             @id @default(autoincrement())
+  icon          String
+  bankName      String
+  cardName      String
+  monthlyIncome Float
+  annualFees    String
+  features      String[]
+  rewards       String[]
+  benefits      String[]
+  annualFee     String[]
+  applyLink     String?
+  minimumIncome Int?
+  offers        String[]
+  planType      PlanTypeEnum? @default(ShariahCompliant)
+}
+
+enum PlanTypeEnum {
+  ShariahCompliant
+  LifetimeFree
 }

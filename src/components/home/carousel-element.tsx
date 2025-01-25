@@ -2,6 +2,7 @@
 import * as React from "react"
 import { Button } from "../ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useCarouselScrollbar } from "@/hook/useCarousel";
 
 const CarouselItem = ({
     title,
@@ -27,24 +28,7 @@ const carouselElement: string[] = [
 type Props = {}
 
 const CarouselElement = (props: Props) => {
-    const carouselRef = React.useRef<HTMLUListElement>(null);
-
-    const scrollLeft = () => {
-        if(carouselRef.current){
-            carouselRef.current.scrollBy({
-                left:-200,
-                behavior:'smooth',
-            })
-        }
-    }
-    const scrollRight = () =>{
-        if(carouselRef.current){
-            carouselRef.current.scrollBy({
-                left:200,
-                behavior:'smooth',
-            })
-        }
-    }
+    const {carouselRef,scrollLeft,scrollRight} =useCarouselScrollbar()
   return (
     <div className="rounded-[6px] my-[20px] mt-[20px] mb-[10px]">
 

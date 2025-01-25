@@ -6,7 +6,6 @@ import { useState } from 'react';
 import CityDetailsComponent from './CityDetailsComponent';
 import ContactDetails from './contact-details';
 import MonthlyIncome from './monthly-income';
-import { Button } from '../ui/button';
 
 const MultiStepFormPage = () => {
   const router = useRouter();
@@ -127,7 +126,7 @@ const MultiStepFormPage = () => {
              handleSubmit={handleSubmit}
              userDetails={userDetails}
              handlePreviousStep={handlePreviousStep}
-             
+             isSubmitting={isSubmitting}
              />
    
       )}

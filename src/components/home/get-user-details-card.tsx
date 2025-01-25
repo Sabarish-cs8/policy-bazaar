@@ -27,7 +27,7 @@ type Props = {
   handleFieldChange:(name:string,value:string)=>void;
   userDetails:{city:string};
   handleNextStep:() =>void;
-  error:string;
+  error:string | null;
 }
 
 
@@ -45,7 +45,7 @@ const GettingUserDetails = ({ handleDynamicSelection,userDetails,handleNextStep 
   return (
     <>
     {/* <form onSubmit={handleCitySubmit}> */}
-      <Card className='ml-12 w-full'>
+      <Card className='ml-12 w-auto lg:w-full '>
         <CardHeader>
           <CardTitle className='text-xl'>
             Best credit cards with

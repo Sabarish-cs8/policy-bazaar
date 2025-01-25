@@ -25,43 +25,41 @@ type Props = {
   handleFieldChange:(name:string,value:string)=>void;
   userDetails:{city:string};
   handleNextStep:() =>void
-  error:string;
+  error: string | null;
 }
 
 const SmilingManPc= ({ handleDynamicSelection,userDetails,handleFieldChange,handleNextStep ,  handleButtonClick ,error}: Props) => {
   
     
   return (
-    <div className='relative w-full'>
+    <div className='relative w-full  h-[900px] md:h-[850px] lg:h-fit'>
     <Image 
       src={SmilingManUsingPc} 
       alt='Smiling man with pc' 
       sizes='100vw'
       width={1370} 
       height={500} 
-      className="w-[100%] h-[800px] md:w-full md:h-full"
+      className="h-[800px] hidden sm:block w-full lg:h-[500px]"
     />
     
 
-    <div className='absolute inset-0 flex flex-col md:flex-col lg:flex-col lg:justify-center lg:items-center gap-4 mt-6'>    
+    <div className='absolute inset-0 flex flex-col md:flex-col lg:flex-row lg:justify-center lg:items-center gap-4 mt-0'>    
     <div className='
-    p-3
-      order-1
+     p-3
+     order-1
      md:order-1 
      lg:order-1 
      w-full
      md:w-full 
-     lg:w-auto 
+     lg:w-auto
      flex 
      justify-end 
-     md:justify-end 
-     lg:justify-start 
+     md:justify-center 
+     lg:justify-center
      mt-1 
-     md:mt-1 
-     lg:mt-24
-     pr-6
+     pr-4
      md:pr-6
-     lg:pr-28'>
+     lg:pl-80'>
 
       <div className='grid grid-cols-1 gap-3'>
         <span className='font-semibold text-lg'>Compare & Apply for Credit Cards</span>
@@ -99,18 +97,32 @@ const SmilingManPc= ({ handleDynamicSelection,userDetails,handleFieldChange,hand
       </div>
     </div>
 
-    <div className='order-2 md:order-2 lg:order-2 flex absolute inset-y-0 right-0 max-w-screen-2xl flex-col h-full pr-20 
-    mt-80
-    md:mt-80
-    lg:mt-2'>
+    <div className='
+    order-2 
+    md:order-2 
+    lg:order-2 
+    w-full
+    md:w-full
+    lg:w-auto
+    flex 
+    flex-col 
+    h-full
+    items-center  
+    pr-0         
+    md:pr-10 
+    lg:pr-20 
+    mt-1 
+    lg:mt-2
+  "
+    '>
 
     <div 
-  className='w-full md:w-full lg:w-full justify-center md:justify-center lg:justify-end m-6 gap-3 bg-white space-x-3 p-8' 
+  className='justify-center w-full m-2 lg:m-4 gap-1 lg:gap-3 bg-white p-2 lg:p-4 items-center'  
   style={{
     background: "linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1) 22%, rgba(255, 255, 255, 1) 73%, rgba(255, 255, 255, 0) 100%)"
   }}
 >
-  <div className="flex flex-row justify-center items-center gap-2">
+  <div className="flex flex-row w-full justify-center items-center gap-1">
     <p className="text-lg">4.6/5</p>
     <span className="text-yellow-500 flex items-center space-x-1">
       <StarIcon />
@@ -126,7 +138,7 @@ const SmilingManPc= ({ handleDynamicSelection,userDetails,handleFieldChange,hand
   </div>
 
   {/* Bottom Section - Apply Now Card */}
-  <div className='order-3 md:order-3 lg:order-3 w-full md:w-full flex justify-center'>
+  <div className='order-3 md:order-3 lg:order-3 w-full flex justify-center items-center'>
 
   <GettingUserDetails handleDynamicSelection={handleDynamicSelection} 
   handleButtonClick={handleButtonClick} error={error} handleFieldChange={handleFieldChange} userDetails={userDetails}

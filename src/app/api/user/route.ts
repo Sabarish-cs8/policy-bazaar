@@ -58,33 +58,24 @@ export  async function POST(request:NextRequest){
       } 
     }
 
-    export async function PUT(request:NextRequest){
-        try {
-            const {userId,officialEmail}=await request.json()
-            if (!userId || !officialEmail) {
-                return new Response(
-                    JSON.stringify({ error: 'UserId and officialEmail are required' }),
-                    { status: 400 }
-                );
-            }
-            await prisma.user.update({
-                where:{id:userId},
-                data:{officialEmail},
-            });
-            return new Response(
-                JSON.stringify({message: "Email updated successfully" }),
-                {status:200}
-            )
-        } catch (error:any) {
-            console.error("Error updating email:", error);
 
+    export async function GET(){
+        try {
+            console.log("✅ API request received to fetch user details");
+            const users = await prisma.user.findMany();
+            if (!users || users.length === 0) {
+                console.warn("⚠️ No users details found");
+                return new Response(
+                  JSON.stringify({ error: "No users details found" }),
+                  { status: 404 }
+                );
+              }
+            return new Response(JSON.stringify(users),{status:200});
+        } catch (error:any) {
+            console.error('❌ Error fetching user details:', error.message || error);
             return new Response(
-                JSON.stringify({
-                    error:"Failed to update email",
-                    details: error.message || 'Unknown error',
-                }),
-                { status: 500 }
+              JSON.stringify({error:'Failed to fetch user details'}),
+              {status:500}
             )
-            
-        }
+          }
     }

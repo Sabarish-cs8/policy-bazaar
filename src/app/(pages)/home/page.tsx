@@ -1,7 +1,5 @@
 'use client';
 import React, { useEffect } from 'react'
-
-
 import BreadCrumbs from '@/components/header/Bread-crumbs'
 import CarouselElement from '@/components/home/carousel-element'
 import { Separator } from '@/components/ui/separator'
@@ -14,7 +12,6 @@ import SmilingManPc from '@/components/home/smiling-man-pc'
 import { useUserInformation } from '@/hook/home';
 import BusinessCards from '@/components/home/BusinessCards';
 import EligibilityCriteria from '@/components/home/Eligibility-Criteria';
-import dynamic from 'next/dynamic';
 import FooterPage from '../footer/page';
 
 
@@ -36,11 +33,13 @@ const HomePage = ({handleNextStep,handleFieldChange,userDetails}: Props) => {
   return (
 
       <>
-      
-    
-<div className='max-w-7xl max-h-fit mx-auto p-5 text-[#253858]'>
+  
+    <div className='w-full mx-auto p-5 text-[#253858] '>
+    <div className='max-w-7xl mx-auto px-2 sm:px-2 lg:px-6 py-3'>
 
-  <div className='text-[#253858] font-semibold text-3xl mb-5'>
+    
+
+  <div className='text-[#253858] font-semibold  text-xl lg:text-3xl  mt-10' >
     <h1>Business Credit Cards in UAE & Dubai</h1>
   </div>
 
@@ -141,9 +140,10 @@ const HomePage = ({handleNextStep,handleFieldChange,userDetails}: Props) => {
 
        <ReviewsAndRating />
        <MoreFromCreditCards />
-
+      </div>
       </div>
 </div>
+
 <FooterPage />
 </>
   )

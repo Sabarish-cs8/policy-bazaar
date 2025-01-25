@@ -13,16 +13,19 @@ import {
   import { X } from "lucide-react";
 import MailAlertImage from "../../icons/mailalert";
 import { useUpdateInformation } from "@/hook/useUpdateInformation";
+import { UserDetailsBasicInformation } from "@/utils/userUtils";
   
-  export function MailAlert() {
+type prop ={
+  handleNextStep:()=>void;
+  handleFieldChange: (field: string, value: string) => void;
+  userDetails:UserDetailsBasicInformation;
+}
+  export function MailAlert({handleNextStep,handleFieldChange,userDetails}:prop) {
 
     const {
       isOpen,
-      submitEmail,
       isLoading,
-      email,
       error,
-        setEmail,
         setIsOpen,} = useUpdateInformation()
         if (error) {
           return <div>{error}</div>; 
@@ -33,7 +36,7 @@ import { useUpdateInformation } from "@/hook/useUpdateInformation";
   }
     return (
       <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-        <AlertDialogContent className="bg-[#ebf2fe] bg-gradient-to-b from-[#ebf2fe] to-[#ffffff] shadow-[0_2px_10px_rgba(0,0,0,.1)] rounded-[10px] max-w-[590px] w-[400px] md:w-[450px] lg:w-full p-5">
+        <AlertDialogContent className="bg-[#ebf2fe] bg-gradient-to-b from-[#ebf2fe] to-[#ffffff] shadow-[0_2px_10px_rgba(0,0,0,.1)] rounded-[10px] max-w-[590px] w-[300px] md:w-[450px] lg:w-full p-5">
           <div className="relative flex flex-col -top-16 items-center">
             <MailAlertImage />
             <AlertDialogCancel className="absolute  right-0 flex items-center justify-center bg-transparent border-transparent hover:bg-transparent border-none">
@@ -55,10 +58,12 @@ import { useUpdateInformation } from "@/hook/useUpdateInformation";
               <p className="text-[#1c222e] font-medium">Official Email ID</p>
               <div className="flex gap-3 mt-3 items-center">
                 <Input className="flex-1" 
-                value={email}
-                onChange={(e)=>setEmail(e.target.value)}/>
+                value={userDetails.officialEmail}
+                onChange={(e)=>handleFieldChange('officialEmail',e.target.value)}/>
                 <Button className="bg-[#ff5722] hover:bg-[#ff5722]"
-                onClick={submitEmail}>Submit</Button>
+                onClick={()=>{
+                  handleNextStep()
+                }}>Submit</Button>
               </div>
             </AlertDialogDescription>
           </AlertDialogHeader>

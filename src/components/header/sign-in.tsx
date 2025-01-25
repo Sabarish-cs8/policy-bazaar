@@ -10,7 +10,7 @@ const SignIn = (props: Props) => {
 
   const screenSize = useScreenSize();
 
-  console.log("screenSize", screenSize)
+  // console.log("screenSize", screenSize)
   return (
     <>
     {screenSize === 'mobile' ? (

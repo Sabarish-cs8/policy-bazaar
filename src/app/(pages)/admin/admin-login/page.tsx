@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Input } from '@/components/ui/input';
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
@@ -20,8 +21,7 @@ const AdminLogin = () => {
 
     // Validate credentials
     if (username === adminUsername && password === adminPassword) {
-      // Redirect to AddCardForm page
-      router.push('/credit-cards/apply/quotes');
+      router.push('/adminportal/admin-login');
     } else {
       setErrorMessage('Invalid username or password');
     }
@@ -33,7 +33,8 @@ const AdminLogin = () => {
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Username</label>
-          <input
+          <p className='text-sm'>Username:admin</p>
+          <Input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -44,7 +45,8 @@ const AdminLogin = () => {
 
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Password</label>
-          <input
+          <p className='text-sm'>Password:password123</p>
+          <Input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

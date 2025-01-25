@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
+import { Toaster } from "@/components/ui/toaster";
+
 
 
 const roboto = Roboto({ subsets: ['latin'] ,weight: ['400', '700'],});
@@ -27,6 +28,7 @@ export default function RootLayout({
        
 
         {children}
+        <Toaster />
         
         {/* <FooterPage /> */}
       </body>

@@ -21,9 +21,10 @@ type Props = {
   handleFieldChange: (field: string, value: string) => void;
   userDetails: { monthlyIncome:string };
   handlePreviousStep: () => void; 
+  isSubmitting:boolean;
 }
 
-const MonthlyIncome = ({handleSubmit,handlePreviousStep,handleFieldChange,userDetails}: Props) => {
+const MonthlyIncome = ({handleSubmit,isSubmitting,handlePreviousStep,handleFieldChange,userDetails}: Props) => {
    const { handleMonthlyIncome ,handleIncomeSubmit ,error} = useUserInformation()
 
     const isValidIncome =
@@ -34,7 +35,7 @@ const MonthlyIncome = ({handleSubmit,handlePreviousStep,handleFieldChange,userDe
 
     const handleFormSubmit = (e:React.FormEvent)=>{
       e.preventDefault();
-      if(isValidIncome){
+      if(isValidIncome && !isSubmitting){
         handleIncomeSubmit(e);
         handleSubmit();
       }
@@ -107,9 +108,9 @@ const MonthlyIncome = ({handleSubmit,handlePreviousStep,handleFieldChange,userDe
       </CardContent>
       <CardFooter className=" flex flex-col w-full">
        <Button type='submit'  className='bg-[#e65733] text-white mt-6 w-full h-11 py-[17px] px-[10px] hover:bg-[#e65733] cursor-pointer hover:text-white' 
-       disabled={!isValidIncome}
+       disabled={!isValidIncome || isSubmitting}
        >
-       Proceed
+       {isSubmitting ? 'Processing...' :'Proceed' }
        </Button>
       </CardFooter>
     </form>

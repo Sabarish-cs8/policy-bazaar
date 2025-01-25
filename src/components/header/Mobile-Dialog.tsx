@@ -18,6 +18,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import {  X } from "lucide-react"
+import Link from "next/link"
 
 
 type Props = {}
@@ -65,9 +66,11 @@ const MobileDialog  = (props: Props) => {
       <Button type="submit" className="w-full bg-[#f9481e] text-white hover:bg-[#f9481e] hover:text-white active:bg-[#f9481e] focus:bg-[#f9481e]">
         Sign in with OTP
       </Button>
+      <Link href={'/admin/admin-login'}>
       <Button type="submit" className="w-full bg-[#f9481e] text-white hover:bg-[#f9481e] hover:text-white active:bg-[#f9481e] focus:bg-[#f9481e]">
        Admin login
       </Button>
+      </Link>
     </div>
 
     <DrawerFooter>

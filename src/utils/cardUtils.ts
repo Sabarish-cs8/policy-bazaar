@@ -1,3 +1,8 @@
+export enum PlanTypeEnum {
+  ShariahCompliant = 'ShariahCompliant',
+  LifetimeFree = 'LifetimeFree',
+}
+
 export interface CardDetails {
     id: number;
     icon: string;
@@ -9,5 +14,5 @@ export interface CardDetails {
     rewards: string[];
     benefits: string[];
     annualFee: string[];
+    planType:PlanTypeEnum[];
   }
-  

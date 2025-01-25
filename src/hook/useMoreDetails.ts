@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 
 export default function useMoreDetails(initialState: boolean = false): [boolean, () => void]{

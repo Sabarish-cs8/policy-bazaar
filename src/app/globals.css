@@ -5,17 +5,21 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-/* Add this to your global CSS or a specific stylesheet */
+
+.card-item {
+  @apply flex w-[116px] py-[13px] px-[10px] bg-white justify-center items-center border border-solid border-[#b3bac5] rounded-[30px];
+}
+
 ul::-webkit-scrollbar {
-  display: none;  /* Hide the scrollbar */
+  display: none; 
 }
 
 ul {
-  -ms-overflow-style: none;  /* IE 10+ */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
 }
 
-/* Add this to your global CSS file */
+
 @layer utilities {
   .h-inherit {
     height: inherit;
@@ -42,8 +46,8 @@ ul {
   background-image: url('https://cdn.policybazaar.ae/quote/new/src/assets/images/Health-component-images/icon-check-compare.svg');
   background-position: 50%;
   background-repeat: no-repeat;
-  background-size: var(--compare-circle, 16px); /* Default size fallback */
-  border-color: var(--active-compare, #4291f5); /* Default border color fallback */
+  background-size: var(--compare-circle, 16px); 
+  border-color: var(--active-compare, #4291f5); 
 }
 
 
